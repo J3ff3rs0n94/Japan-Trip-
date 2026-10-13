@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Japan Autumn Odyssey 2025 | Trip Guide</title>
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #c93b2b;       /* Maple crimson */
+      --primary-light: #fef2f2;
+      --accent: #d97706;        /* Golden ginkgo */
+      --dark: #1e293b;
+      --gray-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-muted: #64748b;
+      --radius: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+      background-color: var(--gray-bg);
+      color: var(--dark);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    /* Top App Bar */
+    header {
+      background: linear-gradient(135deg, #991b1b 0%, #dc2626 60%, #ea580c 100%);
+      color: white;
+      padding: 2.2rem 1.25rem 1.5rem;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .badge-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 0.88rem;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* Overall Summary Stats */
+    .trip-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 10px 14px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+
+    .stat-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    /* Navigation Container */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Day Scroller Tabs */
+    .day-selector-wrapper {
+      margin-top: -18px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 6px 0;
+    }
+    .day-selector-wrapper::-webkit-scrollbar { display: none; }
+
+    .day-tabs {
+      display: inline-flex;
+      gap: 8px;
+      background: white;
+      padding: 6px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+
+    .day-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .day-tab .tab-date {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .day-tab .tab-day {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .day-tab.active {
+      background: var(--primary);
+      box-shadow: 0 4px 12px rgba(201, 59, 43, 0.35);
+    }
+
+    .day-tab.active .tab-date,
+    .day-tab.active .tab-day {
+      color: white;
+    }
+
+    /* Theme & City Banner */
+    .day-hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .day-hero-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--primary);
+    }
+
+    .city-info h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .city-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 3px;
+    }
+
+    .outfit-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .outfit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid rgba(0,0,0,0.08);
+      text-transform: capitalize;
+    }
+
+    /* Timeline Section */
+    .timeline {
+      position: relative;
+      margin-left: 10px;
+      padding-left: 24px;
+      border-left: 2.5px dashed #cbd5e1;
+    }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .event-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Node Marker */
+    .event-card::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 18px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: white;
+      border: 3.5px solid var(--primary);
+      box-shadow: 0 0 0 2px rgba(255,255,255,1);
+    }
+
+    .event-card.stay::before {
+      border-color: #3b82f6;
+    }
+
+    .event-card.food::before {
+      border-color: #10b981;
+    }
+
+    .event-time-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .time-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .type-chip {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .type-chip.flight { background: #e0f2fe; color: #0284c7; }
+    .type-chip.train { background: #fef3c7; color: #b45309; }
+    .type-chip.bus { background: #ede9fe; color: #7c3aed; }
+    .type-chip.car { background: #dcfce7; color: #15803d; }
+    .type-chip.stay { background: #dbeafe; color: #1d4ed8; }
+
+    .event-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+
+    .event-subtext {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .route-spec {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #f8fafc;
+      font-size: 0.78rem;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      color: #475569;
+    }
+
+    .spec-val {
+      font-weight: 600;
+      color: var(--dark);
+      text-align: right;
+    }
+
+    .cost-badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #047857;
+      background: #ecfdf5;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .notice-box {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #b91c1c;
+      background: #fef2f2;
+      border-left: 3px solid #dc2626;
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+
+    /* Day Budget Summary Footer */
+    .day-budget-box {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .budget-info h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .budget-info p {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    /* Quick Filter & Emergency Tools */
+    .quick-bar {
+      margin: 18px 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 10px 14px 10px 36px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: white;
+      font-size: 0.85rem;
+      outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-wrapper i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Fixed Bottom Navigation */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 8px 1rem calc(8px + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: space-around;
+      z-index: 100;
+    }
+
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .nav-btn.active {
+      color: var(--primary);
+    }
+
+    .nav-btn i {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header>
+    <div class="header-content">
+      <div class="badge-capsule">
+        <i data-lucide="compass" style="width:14px; height:14px;"></i>
+        <span>Autumn 2025 Tour</span>
+      </div>
+      <h1>Japan Travel Itinerary</h1>
+      <p class="subtitle">Nagoya • Takayama • Kamikochi • Nagano • Kusatsu • Kawaguchiko • Tokyo • Kamakura</p>
+      
+      <!-- Key Stats from Excel Sheet -->
+      <div class="trip-stats">
+        <div class="stat-item">
+          <div class="stat-label">Duration</div>
+          <div class="stat-val">12 Days</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Cities</div>
+          <div class="stat-val">8 Areas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Currency</div>
+          <div class="stat-val">JPY / MYR</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Quick Search bar -->
+    <div class="quick-bar">
+      <div class="search-wrapper">
+        <i data-lucide="search"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search attraction, train, or hotel..." oninput="handleSearch()" />
+      </div>
+    </div>
+
+    <!-- Day Navigation Ribbon -->
+    <div class="day-selector-wrapper">
+      <div class="day-tabs" id="dayTabsContainer"></div>
+    </div>
+
+    <!-- Active Day Banner (City & Outfit Theme) -->
+    <div class="day-hero-card" id="dayHero"></div>
+
+    <!-- Events Timeline -->
+    <div class="timeline" id="timelineContainer"></div>
+
+    <!-- Daily Expense Summary -->
+    <div class="day-budget-box" id="budgetSummaryBox"></div>
+  </div>
+
+  <!-- Bottom App Tab Bar -->
+  <div class="bottom-bar">
+    <button class="nav-btn active" onclick="resetView()">
+      <i data-lucide="calendar"></i>
+      <span>Schedule</span>
+    </button>
+    <button class="nav-btn" onclick="filterByTag('hotel')">
+      <i data-lucide="bed"></i>
+      <span>Hotels</span>
+    </button>
+    <button class="nav-btn" onclick="filterByTag('transit')">
+      <i data-lucide="train"></i>
+      <span>Transit</span>
+    </button>
+    <button class="nav-btn" onclick="openExpenseOverview()">
+      <i data-lucide="wallet"></i>
+      <span>Budget</span>
+    </button>
+  </div>
+
+  <!-- Main Dataset Extracted from User Uploaded Images -->
+  <script>
+    const itineraryData = [
+      {
+        id: "day-1",
+        date: "11-Nov",
+        day: "Wed",
+        city: "Departure & In-Flight",
+        cityJp: "飞行途中",
+        theme: "casual",
+        themeColor: "#64748b",
+        themeBg: "#f1f5f9",
+        hotel: null,
+        totalDayRM: "2,200.00",
+        events: [
+          {
+            time: "3:30 PM - 4:35 PM",
+            title: "Flight PEN - KUL",
+            type: "flight",
+            details: "Flight No: MH1149",
+            transportType: "Flight",
+            cost: null,
+            note: null
+          },
+          {
+            time: "7:50 PM - 8:55 PM",
+            title: "Flight KUL - SGN",
+            type: "flight",
+            details: "Flight No: VN678",
+            transportType: "Flight",
+            cost: "RM 1,991.00 (Flight Total)",
+            note: "Transit at Ho Chi Minh City"
+          },
+          {
+            time: "12:20 AM (+1) - 7:35 AM",
+            title: "Flight SGN - NGO (Nagoya)",
+            type: "flight",
+            details: "Flight No: VN342 | Seats: 30A, 30B",
+            transportType: "Flight",
+            cost: "Food/Misc: RM 200.00",
+            note: "Overnight flight to Chubu Centrair Airport"
+          }
+        ]
+      },
+      {
+        id: "day-2",
+        date: "12-Nov",
+        day: "Thu",
+        city: "Nagoya & Takayama",
+        cityJp: "名古屋 / 高山",
+        theme: "red",
+        themeColor: "#dc2626",
+        themeBg: "#fef2f2",
+        hotel: "Hotel Wood Takayama",
+        hotelCostRM: "309.25",
+        totalDayRM: "544.25",
+        events: [
+          {
+            time: "7:35 AM",
+            title: "Reached Nagoya Airport (NGO)",
+            type: "sightseeing",
+            details: "Chubu Centrair International Airport customs and baggage claim",
+            transportType: "Arrival"
+          },
+          {
+            time: "9:07 AM - 9:36 AM",
+            title: "Meitetsu Limited Express (Musky Meitetsu-Gifu)",
+            type: "train",
+            details: "Airport (Stop ID: TA24) ➔ Meitetsu Nagoya Station",
+            transportType: "Train",
+            cost: "¥6,130 (RM 161.32)"
+          },
+          {
+            time: "9:50 AM - 12:30 PM",
+            title: "Kanagawa Eki Nishiguchi Highway Bus",
+            type: "bus",
+            details: "Meitetsu Bus Center (Platform 3F7) ➔ Shirakawa-go Bus Center",
+            transportType: "Express Bus"
+          },
+          {
+            time: "1:00 PM - 5:00 PM",
+            title: "Shirakawa-go Lunch & Sightseeing",
+            type: "food",
+            details: "Explore the UNESCO historic thatched gassho-zukuri farmhouses & viewpoints"
+          },
+          {
+            time: "5:24 PM - 6:18 PM",
+            title: "Nohi Bus to Takayama",
+            type: "bus",
+            details: "Shirakawa-go Bus Terminal ➔ Takayama Nohi Bus Center",
+            transportType: "濃飛乗合自動車 (濃飛バス)",
+            cost: "¥2,800 (RM 73.68)"
+          },
+          {
+            time: "6:30 PM - 7:00 PM",
+            title: "Hotel Check-in & Settle Down",
+            type: "stay",
+            details: "Hotel Wood Takayama (Overnight)",
+            cost: "Hotel: RM 309.25"
+          },
+          {
+            time: "7:00 PM - 8:00 PM",
+            title: "Dinner - Hida Beef @ Suzuya Restaurant",
+            type: "food",
+            details: "Specialty Hida beef sukiyaki/steak (Open 5:00 PM - 9:00 PM)"
+          },
+          {
+            time: "8:00 PM",
+            title: "Aji no Yohei (Sake Tasting)",
+            type: "sightseeing",
+            details: "Local sake sampling flights (Closes at 8:00 PM)"
+          }
+        ]
+      },
+      {
+        id: "day-3",
+        date: "13-Nov",
+        day: "Fri",
+        city: "Gifu & Kamikochi & Matsumoto",
+        cityJp: "岐阜 / 上高地 / 松本",
+        theme: "mustard yellow / orange",
+        themeColor: "#d97706",
+        themeBg: "#fffbeb",
+        hotel: "Iroha Grand Hotel Matsumoto Ekimae",
+        hotelCostRM: "156.33",
+        totalDayRM: "338.29",
+        events: [
+          {
+            time: "7:00 AM - 7:58 AM",
+            title: "Bus: Takayama to Hirayu Onsen",
+            type: "bus",
+            details: "Takayama Nohi Bus Center (Platform 5) ➔ Hirayu Onsen",
+            transportType: "H03 Hirayu Shinhotaka Line",
+            cost: "¥3,100 (RM 81.58 - Kamikochi Bus Combo)"
+          },
+          {
+            time: "8:30 AM - 8:55 AM",
+            title: "Shuttle: Hirayu Onsen to Kamikochi",
+            type: "bus",
+            details: "Hirayu Onsen ➔ Kamikochi Bus Terminal",
+            transportType: "Kamikochi Line Shuttle"
+          },
+          {
+            time: "9:00 AM - 3:30 PM",
+            title: "Kamikochi Sightseeing & Hiking",
+            type: "sightseeing",
+            details: "Kappa Bridge, Taisho Pond, pristine Azusa River views before winter closure"
+          },
+          {
+            time: "4:00 PM - 5:05 PM",
+            title: "Alpico Kotsu Bus to Shin-Shimashima",
+            type: "bus",
+            details: "Kamikochi Bus Terminal (Platform 4) ➔ Shin-Shimashima Station",
+            transportType: "Alpico Kotsu Kamikochi Line",
+            cost: "¥3,100 (RM 81.58)"
+          },
+          {
+            time: "5:22 PM - 5:51 PM",
+            title: "Alpico Kotsu Train to Matsumoto",
+            type: "train",
+            details: "Shin-Shimashima ➔ Matsumoto Station",
+            transportType: "Local Train",
+            cost: "¥710 (RM 18.68)"
+          },
+          {
+            time: "Evening",
+            title: "Dinner & Night Tour at Matsumoto City",
+            type: "food",
+            details: "Matsumoto Castle exterior illuminations & local soba dinner"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Iroha Grand Hotel Matsumoto Ekimae",
+            type: "stay",
+            details: "Convenient station-front lodging",
+            cost: "Hotel: RM 156.33"
+          }
+        ]
+      },
+      {
+        id: "day-4",
+        date: "14-Nov",
+        day: "Sat",
+        city: "Nagano & Narai-juku",
+        cityJp: "长野 / 松本 / 奈良井宿",
+        theme: "beige / brown",
+        themeColor: "#78350f",
+        themeBg: "#fef3c7",
+        hotel: "Island Hotel Nagano",
+        hotelCostRM: "293.50",
+        totalDayRM: "476.99",
+        events: [
+          {
+            time: "7:55 AM - 8:11 AM",
+            title: "JR Shinonoi Line to Shiojiri",
+            type: "train",
+            details: "Matsumoto Bus Terminal / Station ➔ Shiojiri Station",
+            cost: "¥590 (RM 15.53)"
+          },
+          {
+            time: "8:17 AM - 8:43 AM",
+            title: "JR Chuo Line Local to Narai-juku",
+            type: "train",
+            details: "Shiojiri Station ➔ Narai Station (Post Town on Nakasendo)"
+          },
+          {
+            time: "Morning",
+            title: "Luggage Storage @ Shiojiri Station",
+            type: "sightseeing",
+            details: "Coin lockers / baggage holding",
+            cost: "¥800 (RM 21.05)"
+          },
+          {
+            time: "11:26 AM - 1:51 PM",
+            title: "Return train & Lunch / Alternative Obuse",
+            type: "train",
+            details: "Narai ➔ Shiojiri ➔ Nagano on JR Shinano 11 Limited Express",
+            cost: "¥4,760 (RM 125.26)"
+          },
+          {
+            time: "1:08 PM - 2:00 PM",
+            title: "Nagano Dentetsu Line (Yudanaka Express)",
+            type: "train",
+            details: "Nagano Station ➔ Obuse Station (Chestnut town)",
+            note: "Obuse shops close around sunset (~5:00 PM)"
+          },
+          {
+            time: "6:28 PM - 7:00 PM",
+            title: "Return: Obuse to Nagano Station",
+            type: "train",
+            details: "Nagano Dentetsu Limited Express ➔ Nagano Station",
+            cost: "¥870 (RM 22.89)"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Nagano Island Hotel",
+            type: "stay",
+            details: "Natural hot spring bath facility",
+            cost: "Hotel: RM 293.50"
+          }
+        ]
+      },
+      {
+        id: "day-5",
+        date: "15-Nov",
+        day: "Sun",
+        city: "Nagano & Kusatsu Onsen",
+        cityJp: "长野 / 户隐 / 草津温泉",
+        theme: "dark brown",
+        themeColor: "#451a03",
+        themeBg: "#f5ebe0",
+        hotel: "Kane Midori (草津温泉 金みどり)",
+        hotelCostRM: "440.00",
+        totalDayRM: "766.70",
+        events: [
+          {
+            time: "Morning Note",
+            title: "Luggage Forwarding (Takkyubin)",
+            type: "sightseeing",
+            details: "Send bulk bags from Nagano Hotel direct to Kawaguchiko Kukuna Hotel upfront!",
+            cost: "¥3,000 (RM 78.95)",
+            note: "Travel with overnight backpacks to Kusatsu Onsen"
+          },
+          {
+            time: "6:47 AM - 7:46 AM",
+            title: "Togakushi Line Bus to Togakushi-jinja Chusha",
+            type: "bus",
+            details: "Nagano Station ➔ Togakushi Chusha (戸隠神社中社)",
+            cost: "¥1,550 (RM 40.79)"
+          },
+          {
+            time: "Morning",
+            title: "Togakushi Shrine Cedar Walk & Soba Lunch",
+            type: "sightseeing",
+            details: "Half-day exploring ancient Japanese cryptomeria avenue"
+          },
+          {
+            time: "12:40 PM - 1:45 PM",
+            title: "Togakushi Shuttle back to Nagano",
+            type: "bus",
+            details: "Togakushi Chusha ➔ Nagano Station East Exit"
+          },
+          {
+            time: "2:03 PM - 2:34 PM",
+            title: "Hokuriku Shinkansen to Karuizawa",
+            type: "train",
+            details: "Nagano Station ➔ Karuizawa Station (Bullet Train)",
+            cost: "¥7,530 (RM 198.16 with connecting Kusatsu Express Bus)"
+          },
+          {
+            time: "3:40 PM - 5:02 PM",
+            title: "Express Bus to Kusatsu Onsen",
+            type: "bus",
+            details: "Karuizawa Station North Exit (Platform 2) ➔ Kusatsu Onsen Bus Terminal",
+            transportType: "急行草軽線草津温泉 (系統:01)"
+          },
+          {
+            time: "Overnight",
+            title: "Ryokan Kane Midori Kusatsu",
+            type: "stay",
+            details: "Traditional Japanese ryokan onsen experience & Kaiseki dining",
+            cost: "Hotel: RM 440.00"
+          }
+        ]
+      },
+      {
+        id: "day-6",
+        date: "16-Nov",
+        day: "Mon",
+        city: "Gunma & Kawaguchiko",
+        cityJp: "群马 / 新宿 / 河口湖",
+        theme: "burgundy / purple",
+        themeColor: "#831843",
+        themeBg: "#fdf2f8",
+        hotel: "Fuji Scenic House 73",
+        hotelCostRM: "355.07",
+        totalDayRM: "531.38",
+        events: [
+          {
+            time: "Morning",
+            title: "Kusatsu Onsen Yubatake & Thermal Stroll",
+            type: "sightseeing",
+            details: "Store luggage at hotel; see Yumomi performance & hot spring fields"
+          },
+          {
+            time: "1:53 PM - 6:08 PM",
+            title: "Highway Express Bus to Shinjuku",
+            type: "bus",
+            details: "Kusatsu Onsen ➔ Busta Shinjuku (Tokyo expressway)",
+            transportType: "東京・新宿〜渋川・伊香保・草津温泉 (ゆめぐり号)",
+            cost: "¥4,100 (RM 107.89)"
+          },
+          {
+            time: "6:45 PM - 8:20 PM",
+            title: "Express Bus: Shinjuku to Mt. Fuji Lake",
+            type: "bus",
+            details: "Busta Shinjuku ➔ Fujisan Yamanakako / Kawaguchiko area",
+            transportType: "Fujigoko Mt. Fuji 5th Station Line",
+            cost: "¥2,600 (RM 68.42)",
+            note: "Contact Fuji Scenic House for shuttle pickup if required"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Fuji Scenic House 73",
+            type: "stay",
+            details: "Apartment lodge facing Mount Fuji",
+            cost: "Hotel: RM 355.07"
+          }
+        ]
+      },
+      {
+        id: "day-7",
+        date: "17-Nov",
+        day: "Tue",
+        city: "Yamanashi (Fuji Five Lakes)",
+        cityJp: "山梨 (富士五湖自驾)",
+        theme: "white / jeans",
+        themeColor: "#0284c7",
+        themeBg: "#f0f9ff",
+        hotel: "The Garden Kawaguchiko",
+        hotelCostRM: "640.05",
+        totalDayRM: "744.63",
+        events: [
+          {
+            time: "5:30 AM - 6:00 AM",
+            title: "Sunrise at Lake Yamanaka (日照金山 - 山中湖)",
+            type: "sightseeing",
+            details: "Witness red morning glow over Mount Fuji"
+          },
+          {
+            time: "7:00 AM - 7:30 AM",
+            title: "Collect Rental Car @ Kawaguchiko Station",
+            type: "car",
+            details: "Suzuki Compact Car (RM 418.33 total for 2 days = RM 104.58 / pax)",
+            cost: "Car Share: RM 104.58"
+          },
+          {
+            time: "7:30 AM - 9:00 AM",
+            title: "Kawaguchiko Konohana Museum & Maple Corridor",
+            type: "sightseeing",
+            details: "Momiji Kairo autumn foliage corridor walk & photo stops"
+          },
+          {
+            time: "9:00 AM - 9:50 AM",
+            title: "Oishi Park (大石公园)",
+            type: "sightseeing",
+            details: "Lakeside stroll with panoramic unobstructed views of Mt Fuji"
+          },
+          {
+            time: "11:00 AM - 1:15 PM",
+            title: "Makaino Farm & Kanayama Terrace",
+            type: "sightseeing",
+            details: "Drive to Fujinomiya: fresh milk gelato, animal encounters, and lunch at Kanayama Terrace"
+          },
+          {
+            time: "1:15 PM - 3:00 PM",
+            title: "Famous LAWSON Kawaguchiko Station",
+            type: "sightseeing",
+            details: "Iconic convenience store photo spot with Fuji backdrop"
+          },
+          {
+            time: "3:00 PM - 3:15 PM",
+            title: "Hikawa Clock Shop (日川时计店)",
+            type: "sightseeing",
+            details: "Classic retro Showa-era street frame framing Mt. Fuji"
+          },
+          {
+            time: "4:00 PM - 4:15 PM",
+            title: "Sunset over Lake Kawaguchi at Ubuya",
+            type: "sightseeing",
+            details: "Golden hour over the north shore"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ The Garden Kawaguchiko",
+            type: "stay",
+            details: "Modern minimalist design villas with direct Mt. Fuji terrace views",
+            cost: "Hotel: RM 640.05"
+          }
+        ]
+      },
+      {
+        id: "day-8",
+        date: "18-Nov",
+        day: "Wed",
+        city: "Shizuoka & Tokyo",
+        cityJp: "静冈 (伊豆/箱根) ➔ 东京",
+        theme: "baby blue",
+        themeColor: "#38bdf8",
+        themeBg: "#f0f9ff",
+        hotel: "Hotel Metropolitan Tokyo Marunouchi",
+        hotelCostRM: "484.51",
+        totalDayRM: "655.14",
+        events: [
+          {
+            time: "5:00 AM - 6:30 AM",
+            title: "Drive to Tedahara Bridge (30 mins)",
+            type: "car",
+            details: "Early morning drive through scenic mountain passes",
+            cost: "Car Share: RM 104.58"
+          },
+          {
+            time: "7:30 AM - 9:30 AM",
+            title: "Lake Ashi (芦之湖 Hakone)",
+            type: "sightseeing",
+            details: "Lakeside views of Hakone Shrine torii gate"
+          },
+          {
+            time: "10:00 AM - 12:00 PM",
+            title: "Jogasaki Coast (城崎海岸 Izu)",
+            type: "sightseeing",
+            details: "Rugged volcanic cliffs and Kadowaki suspension bridge"
+          },
+          {
+            time: "2:00 PM - 3:00 PM",
+            title: "Shirahama Shrine (白滨神社)",
+            type: "sightseeing",
+            details: "Ancient seaside shrine with red torii on ocean reef rocks"
+          },
+          {
+            time: "4:00 PM - 6:30 PM",
+            title: "Return Drive: Return Car @ Kawaguchiko Station",
+            type: "car",
+            details: "150-minute return drive; inspect and hand back Suzuki rental car"
+          },
+          {
+            time: "7:41 PM - 8:41 PM",
+            title: "Fujikyuko Line to Otsuki Station",
+            type: "train",
+            details: "Kawaguchiko Station ➔ Otsuki Station (Local Otsuki)",
+            cost: "¥2,510 (RM 66.05 with Chuo Connection)"
+          },
+          {
+            time: "Late Evening",
+            title: "Arrive in Tokyo & Check-in",
+            type: "stay",
+            details: "Hotel Metropolitan Tokyo Marunouchi (Connected directly to Tokyo Station)",
+            cost: "Hotel: RM 484.51"
+          }
+        ]
+      },
+      {
+        id: "day-9",
+        date: "19-Nov",
+        day: "Thu",
+        city: "Tokyo (Autumn Foliage & Shopping)",
+        cityJp: "东京 (红叶打卡/涉谷)",
+        theme: "dark brown",
+        themeColor: "#451a03",
+        themeBg: "#fef3c7",
+        hotel: "Hotel Metropolitan Tokyo Marunouchi",
+        hotelCostRM: "484.51",
+        totalDayRM: "484.51",
+        events: [
+          {
+            time: "Morning",
+            title: "Shinjuku Gyoen National Garden (新宿御苑)",
+            type: "sightseeing",
+            details: "Autumn foliage leaves (红叶打卡) & Japanese landscape gardens"
+          },
+          {
+            time: "Midday",
+            title: "Meiji Jingu Gaien Ginkgo Avenue (明治神宫外苑)",
+            type: "sightseeing",
+            details: "Golden yellow ginkgo tunnel tree photography"
+          },
+          {
+            time: "Afternoon",
+            title: "Shibuya Sky & Shibuya Scramble",
+            type: "sightseeing",
+            details: "Rooftop observation deck over Tokyo skyline"
+          },
+          {
+            time: "Evening",
+            title: "Shopping & Dinner in Shibuya / Shinjuku",
+            type: "food",
+            details: "Parco, Miyashita Park & flagship retail stores"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Hotel Metropolitan Tokyo Marunouchi",
+            type: "stay",
+            details: "Night 2 in Tokyo Center",
+            cost: "Hotel: RM 484.51"
+          }
+        ]
+      },
+      {
+        id: "day-10",
+        date: "20-Nov",
+        day: "Fri",
+        city: "Tokyo & Travel to Kamakura",
+        cityJp: "东京 ➔ 镰仓",
+        theme: "black / white",
+        themeColor: "#0f172a",
+        themeBg: "#f8fafc",
+        hotel: "Plat Hostel Keikyu Kamakura Wave",
+        hotelCostRM: "115.06",
+        totalDayRM: "142.43",
+        events: [
+          {
+            time: "Morning",
+            title: "Senso-ji Temple (浅草寺) & Nakamise Dori",
+            type: "sightseeing",
+            details: "Historic Asakusa shrine visit and morning street snacks"
+          },
+          {
+            time: "11:30 AM",
+            title: "Rikugien Garden (六义园)",
+            type: "sightseeing",
+            details: "Famous traditional Edo stroll garden with autumn foliage"
+          },
+          {
+            time: "Afternoon",
+            title: "Pokémon Center Mega Tokyo & Pikachu Sweets",
+            type: "sightseeing",
+            details: "Sunshine City Ikebukuro (Closes 8:00 PM)"
+          },
+          {
+            time: "Late Afternoon",
+            title: "Ginza Shopping (Ginza Uniqlo Flagship)",
+            type: "sightseeing",
+            details: "Ginza 6, Uniqlo 12-floor global flagship (Closes 8:00 PM)"
+          },
+          {
+            time: "Dusk",
+            title: "Tokyo Tower Viewpoint",
+            type: "sightseeing",
+            details: "Classic landmark evening skyline views"
+          },
+          {
+            time: "9:21 PM - 10:17 PM",
+            title: "JR Yokosuka Line to Kamakura",
+            type: "train",
+            details: "Tokyo Station ➔ Kamakura Station",
+            cost: "¥1,040 (RM 27.37)"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Plat Hostel Keikyu Kamakura Wave",
+            type: "stay",
+            details: "Cozy seaside aesthetic boutique hostel",
+            cost: "Hotel: RM 115.06"
+          }
+        ]
+      },
+      {
+        id: "day-11",
+        date: "21-Nov",
+        day: "Sat",
+        city: "Kanagawa (Kamakura & Enoshima) ➔ Nagoya",
+        cityJp: "镰仓 / 江之岛 ➔ 名古屋",
+        theme: "blue / white / grey",
+        themeColor: "#2563eb",
+        themeBg: "#eff6ff",
+        hotel: "Hotel Prizm Nagoya",
+        hotelCostRM: "251.88",
+        totalDayRM: "590.28",
+        events: [
+          {
+            time: "6:32 AM - 6:52 AM",
+            title: "Enoden Line to Kamakurakoko-mae",
+            type: "train",
+            details: "Kamakura Station ➔ Kamakura Koko-mae (Slam Dunk crossing)",
+            cost: "¥260 (RM 6.84)"
+          },
+          {
+            time: "7:34 AM - 7:39 AM",
+            title: "Enoden to Enoshima Station",
+            type: "train",
+            details: "Kamakura Koko-mae ➔ Enoshima Island coastal walk",
+            cost: "¥200 (RM 5.26)"
+          },
+          {
+            time: "1:31 PM - 1:38 PM",
+            title: "Enoden to Shichirigahama",
+            type: "train",
+            details: "Enoshima ➔ Shichirigahama (Pacific ocean beach cafes)",
+            cost: "¥220 (RM 5.79)"
+          },
+          {
+            time: "2:20 PM - 2:38 PM",
+            title: "Hase-dera Temple (长谷寺)",
+            type: "sightseeing",
+            details: "Shichirigahama ➔ Hase Station (¥210 / RM 5.53) - Kannon statue & garden"
+          },
+          {
+            time: "3:29 PM - 5:30 PM",
+            title: "Komachi-dori, Sugimoto-dera & Tsurugaoka Hachimangu",
+            type: "sightseeing",
+            details: "Hase ➔ Kamakura (¥200 / RM 5.26); walk Komachi shopping lane & grand shrine"
+          },
+          {
+            time: "6:21 PM - 7:09 PM",
+            title: "JR Yokosuka Line to Shinagawa",
+            type: "train",
+            details: "Kamakura Station ➔ Shinagawa Station"
+          },
+          {
+            time: "7:17 PM - 8:45 PM",
+            title: "Tokaido Shinkansen (Nozomi 83) to Nagoya",
+            type: "train",
+            details: "Shinagawa Station ➔ Nagoya Station (Fast bullet train)",
+            cost: "¥11,900 (RM 313.16 total Shinkansen combo)"
+          },
+          {
+            time: "Overnight",
+            title: "Stay @ Hotel Prizm Nagoya",
+            type: "stay",
+            details: "Final night rest before morning departure",
+            cost: "Hotel: RM 251.88"
+          }
+        ]
+      },
+      {
+        id: "day-12",
+        date: "22-Nov",
+        day: "Sun",
+        city: "Nagoya Departure ➔ Return Home",
+        cityJp: "名古屋 ➔ 归途",
+        theme: "casual",
+        themeColor: "#475569",
+        themeBg: "#f8fafc",
+        hotel: null,
+        totalDayRM: "37.63",
+        events: [
+          {
+            time: "6:00 AM - 6:30 AM",
+            title: "Meitetsu Limited Express to Airport",
+            type: "train",
+            details: "Meitetsu Nagoya Station ➔ Chubu Centrair Airport (NGO)",
+            cost: "¥1,430 (RM 37.63)"
+          },
+          {
+            time: "9:30 AM - 1:20 PM",
+            title: "Flight NGO - HAN (Hanoi)",
+            type: "flight",
+            details: "Flight No: VN349 | Seats: 34H, 34K"
+          },
+          {
+            time: "2:50 PM - 7:10 PM",
+            title: "Flight HAN - KUL",
+            type: "flight",
+            details: "Flight No: VN681 (Transit Hanoi)"
+          },
+          {
+            time: "11:20 PM - 12:20 AM (+1)",
+            title: "Flight KUL - PEN (Home)",
+            type: "flight",
+            details: "Flight No: MH1194. Safe journey home!"
+          }
+        ]
+      }
+    ];
+
+    let currentDayIndex = 0;
+    let currentFilter = 'all';
+
+    // Initialize App
+    function initApp() {
+      renderDayTabs();
+      renderDayContent(currentDayIndex);
+      lucide.createIcons();
+    }
+
+    // Render Navigation Tabs
+    function renderDayTabs() {
+      const container = document.getElementById('dayTabsContainer');
+      container.innerHTML = itineraryData.map((d, idx) => `
+        <button class="day-tab ${idx === currentDayIndex ? 'active' : ''}" onclick="selectDay(${idx})">
+          <span class="tab-date">${d.date}</span>
+          <span class="tab-day">${d.day}</span>
+        </button>
+      `).join('');
+    }
+
+    // Select Day Function
+    function selectDay(index) {
+      currentDayIndex = index;
+      renderDayTabs();
+      renderDayContent(index);
+      lucide.createIcons();
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Render Day Hero, Timeline and Budget
+    function renderDayContent(index) {
+      const data = itineraryData[index];
+
+      // Render Hero Card
+      const hero = document.getElementById('dayHero');
+      hero.innerHTML = `
+        <div class="city-info">
+          <h2>${data.city}</h2>
+          <p><i data-lucide="map-pin" style="width:14px; height:14px;"></i> ${data.cityJp}</p>
+        </div>
+        <div class="outfit-badge">
+          <span style="font-size:0.68rem; color:#64748b; font-weight:700; margin-bottom:4px;">DRESS THEME</span>
+          <div class="outfit-pill" style="background:${data.themeBg}; color:${data.themeColor};">
+            <i data-lucide="sparkles" style="width:12px; height:12px;"></i>
+            <span>${data.theme}</span>
+          </div>
+        </div>
+      `;
+
+      // Render Timeline Events
+      const timeline = document.getElementById('timelineContainer');
+      let filteredEvents = data.events;
+
+      if (currentFilter === 'hotel') {
+        filteredEvents = data.events.filter(e => e.type === 'stay');
+      } else if (currentFilter === 'transit') {
+        filteredEvents = data.events.filter(e => ['train', 'bus', 'flight', 'car'].includes(e.type));
+      }
+
+      if (filteredEvents.length === 0) {
+        timeline.innerHTML = `<p style="padding:20px; color:#64748b; font-size:0.9rem;">No entries found for this category today.</p>`;
+      } else {
+        timeline.innerHTML = filteredEvents.map(event => `
+          <div class="event-card ${event.type}">
+            <div class="event-time-row">
+              <span class="time-tag">
+                <i data-lucide="clock" style="width:13px; height:13px;"></i>
+                ${event.time}
+              </span>
+              <span class="type-chip ${event.type}">${event.transportType || event.type}</span>
+            </div>
+            <div class="event-title">${event.title}</div>
+            <div class="event-subtext">${event.details}</div>
+            ${event.cost ? `<div class="cost-badge">${event.cost}</div>` : ''}
+            ${event.note ? `<div class="notice-box"><i data-lucide="alert-circle" style="width:12px; height:12px; display:inline-block; vertical-align:middle; margin-right:3px;"></i>${event.note}</div>` : ''}
+          </div>
+        `).join('');
+      }
+
+      // Render Budget Box
+      const budgetBox = document.getElementById('budgetSummaryBox');
+      budgetBox.innerHTML = `
+        <div class="budget-info">
+          <h4>Estimated Day Total</h4>
+          <p>RM ${data.totalDayRM || '0.00'}</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.75rem; color:#64748b; display:block;">Overnight Stay:</span>
+          <span style="font-size:0.85rem; font-weight:700; color:#1e293b;">${data.hotel || 'In-Flight / Return'}</span>
+        </div>
+      `;
+    }
+
+    // Filter Tool Functions
+    function filterByTag(tag) {
+      currentFilter = tag;
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      renderDayContent(currentDayIndex);
+      lucide.createIcons();
+    }
+
+    function resetView() {
+      currentFilter = 'all';
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.nav-btn:first-child').classList.add('active');
+      renderDayContent(currentDayIndex);
+      lucide.createIcons();
+    }
+
+    function openExpenseOverview() {
+      alert("📊 Budget Overview:\nTotal calculated daily expenses are detailed per card in both Japanese Yen (¥) and Malaysian Ringgit (RM).");
+    }
+
+    // Real-time Search Filter
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      if (!query) {
+        renderDayContent(currentDayIndex);
+        lucide.createIcons();
+        return;
+      }
+
+      const timeline = document.getElementById('timelineContainer');
+      const allMatching = [];
+
+      itineraryData.forEach(day => {
+        day.events.forEach(ev => {
+          if (ev.title.toLowerCase().includes(query) || 
+              ev.details.toLowerCase().includes(query) ||
+              day.city.toLowerCase().includes(query)) {
+            allMatching.push({ ...ev, date: day.date, dayOfWeek: day.day });
+          }
+        });
+      });
+
+      if (allMatching.length === 0) {
+        timeline.innerHTML = `<div style="padding:20px; text-align:center; color:#64748b;">No matching itinerary item for "${query}"</div>`;
+      } else {
+        timeline.innerHTML = allMatching.map(ev => `
+          <div class="event-card ${ev.type}">
+            <div class="event-time-row">
+              <span class="time-tag">${ev.date} (${ev.dayOfWeek}) • ${ev.time}</span>
+              <span class="type-chip ${ev.type}">${ev.type}</span>
+            </div>
+            <div class="event-title">${ev.title}</div>
+            <div class="event-subtext">${ev.details}</div>
+            ${ev.cost ? `<div class="cost-badge">${ev.cost}</div>` : ''}
+          </div>
+        `).join('');
+      }
+      lucide.createIcons();
+    }
+
+    // Start script
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
